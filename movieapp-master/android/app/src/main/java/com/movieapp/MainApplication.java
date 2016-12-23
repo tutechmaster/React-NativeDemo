@@ -5,6 +5,7 @@ import android.util.Log;
 import android.support.annotation.NonNull;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -29,7 +30,8 @@ public class MainApplication extends NavigationApplication {
   //   @Override
   //   protected List<ReactPackage> getPackages() {
   //     return Arrays.<ReactPackage>asList(
-  //         new MainReactPackage()
+  //         new MainReactPackage(),
+            new VectorIconsPackage()
   //     );
   //   }
   // };

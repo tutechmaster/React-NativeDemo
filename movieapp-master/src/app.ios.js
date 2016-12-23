@@ -13,13 +13,20 @@ const store = configureStore();
 registerScreens(store, Provider);
 
 const navigatorStyle = {
-	navBarTranslucent: true,
+	navBarTransparent: true,
+	navBarBlur: true,
 	drawUnderNavBar: true,
 	navBarTextColor: 'white',
 	navBarButtonColor: 'white',
 	statusBarTextColorScheme: 'light',
+	statusBarColor: 'black',
+	// toolBarColor: '#3F51B5',
+	// navigationBarColor: '#303F9F',
+	// tabSelectedTextColor: '#FFA000',
+	// tabNormalTextColor: '#FFC107',
+	// tabIndicatorColor: '#FFA000',
+	// navBarTextSubtitleColor: '#0060A0'
 };
-
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -29,10 +36,11 @@ class App extends Component {
 	}
 
 	startApp() {
+		Navigation
 		Navigation.startTabBasedApp({
 			tabs: [
 				{
-					label: 'Movie',
+					label: 'Movies',
 					screen: 'movieapp.Movies',
 					icon: iconsMap['ios-film-outline'],
 					selectedIcon: iconsMap['ios-film'],

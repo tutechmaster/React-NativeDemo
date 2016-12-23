@@ -97,10 +97,10 @@ class Movies extends Component {
 					<RefreshControl
 						refreshing={this.state.isRefreshing}
 						onRefresh={this._onRefresh}
-						colors={['#EA0000']}
+						colors={['white']}
 						tintColor="white"
-						title="loading..."
-						titleColor="green"
+						title="Loading..."
+						titleColor="white"
 						progressBackgroundColor="white"
 					/>
 				}>

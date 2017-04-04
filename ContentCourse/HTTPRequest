@@ -1,0 +1,108 @@
+const App = () => (
+	<View>
+		<Header headerText={'Cars'} />
+		<Cars />
+	</View>
+);
+
+//2
+
+const Cars = () => {
+	return (
+		<View>
+			<Text>Cars</Text>;
+		</View>;
+	);
+};
+
+export default Cars;
+
+
+//3
+import React, { Component } from 'react';
+class Cars extends Component {
+	reder() {
+	return (
+		<View>
+			<Text>Cars</Text>;
+		</View>;
+	);
+	}
+}
+
+//4
+import React, { Component } from 'react';
+import axios from 'axios';
+class Cars extends Component {
+componentWillMount() {
+	axios.get('https://..')
+}
+	reder() {
+	return (
+		<View>
+			<Text>Cars</Text>;
+		</View>
+	);
+	}
+}
+
+//5
+bo sung
+render Albums() {
+	return this.state.albums.map(album => 
+	<Text key={album.title}>{album.title}</Text>
+	);
+}
+reder() {
+	return (
+		<View>
+			{this.renderAlbums()}
+		</View>
+	);
+	}
+
+//6
+render Albums() {
+	return this.state.albums.map(album => 
+	<AlbumDetail key={album.title} album={album}/>
+	);
+}
+
+//AlbumDetail
+const AlbumDetail = () => {
+	return (
+		<View>
+			<Text>{props.album.title}</Text>
+		</View>
+	);
+}
+export default AlbumDetail;
+//Card
+const Card = () => {
+	return (
+		<View>
+			<Text>{props.album.title}</Text>
+		</View>
+	);
+}
+
+
+const styles = {
+	containerStyle: {
+		borderWidth: 1,
+		borderRadius: 2,
+		borderColor: '#ddd',
+		borderBottomWidth: 0,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.1,
+		shadowRadius: 2,
+		elevation: 1,
+		marginLeft: 5,
+		marginRight: 5,
+		marginTop: 10
+	}
+};
+
+
+export default Card;

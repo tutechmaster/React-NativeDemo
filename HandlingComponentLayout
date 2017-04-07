@@ -1,0 +1,175 @@
+//MovieDetail:
+import React from 'react';
+import { View, Text } from 'react-native';
+import Card from '../components/Card';
+import CardSection from '../components/CardSection';
+const MovieDetail = (props) => {
+  return (
+    <Card>
+      <CardSection>
+      	<View>
+
+      	</View>
+      	<View style={styles.headerContentStyle}>
+        	<Text>{props.movie.title}</Text>
+        	<Text>{props.movie.release_date}</Text>
+        </View>
+      </CardSection>
+    </Card>
+  );
+};
+
+export default MovieDetail;
+
+
+const styles = {
+	headerConcentStyle: {
+		flexDirection: 'column',
+		justifyContent: 'space-around'
+	}
+}
+
+
+//Nếu muốn vừa setState và log thì thay đổi như sau:
+componentWillMount() {
+		var self = this;
+		axios.get(`${TMDB_URL}/movie/popular?api_key=${TMDB_API_KEY}&page=1`)
+			.then(function(response){
+				console.log(response.data.results);
+				self.setState({ movies: response.data.results});
+  });
+	}
+
+
+
+//Images with React Native
+  //MovieDetail
+  //MovieDetail:
+import React from 'react';
+import { View, Text, Image } from 'react-native';
+import Card from '../components/Card';
+import CardSection from '../components/CardSection';
+import { TMDB_IMG_URL } from '../constants/api';
+const MovieDetail = ({ movie }) => {
+  const { title, release_date, poster_path } = movie;
+  const { headerContentStyle, thumbnailStyle } = styles;
+  return (
+    <Card>
+      <CardSection>
+        <View>
+          <Image
+            style={thumbnailStyle}
+            source={{uri: `${TMDB_IMG_URL}${poster_path}`}}
+          />
+        </View>
+        <View style={headerContentStyle}>
+          <Text>{title}</Text>
+          <Text>{release_date}</Text>
+        </View>
+      </CardSection>
+    </Card>
+  );
+};
+export default MovieDetail;
+
+
+const styles = {
+  headerContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  thumbnailStyle: {
+    height: 50,
+    width: 50
+  }
+}
+
+//Display Movie Artwork
+  //Thêm style
+thumbnailContainerStyle: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginLeft: 10,
+  marginRight: 10
+},
+  //2
+headerTextStyle: {
+  fontSize: 18
+}
+
+<View style={thumbnailContainerStyle}>
+          <Image
+            style={thumbnailStyle}
+            source={{uri: `${TMDB_IMG_URL}${poster_path}`}}
+          />
+</View>
+
+  //2
+  <Text style={headerTextStyle}>{title}</Text>
+
+//3
+  imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
+  }
+
+  <CardSection>
+          <Image
+            style={imageStyle}
+            source={{uri: `${TMDB_IMG_URL}${backdrop_path}`}}
+          />
+      </CardSection>
+
+//Making content scrollable
+import ScrollView and wrap the content you want to scroll remember add flex whenever a scroll
+not scroll through all content.
+
+//making button
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+
+const Button = () => {
+  const { buttonStyle, textStyle } = styles;
+  return (
+    <TouchableOpacity style={buttonStyle}>
+      <Text style={textStyle}>Play</Text>
+    </TouchableOpacity>
+  );
+};
+const styles = {
+  textStyle: {
+    alignSelf: 'center',
+    color: '#007aff',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  buttonStyle: {
+    flex: 1,
+    alignSelf: 'stretch',
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#007aff',
+    marginLeft: 5,
+    marginRight: 5
+  }
+};
+
+
+export default Button;
+
+//truyền function từ detail sang button
+<CardSection>
+        <Button onPress={() => console.log('Pressed')}/>
+</CardSection>
+  //button
+
+<TouchableOpacity onPress={onPress} style={buttonStyle}>
+      <Text style={textStyle}>Play</Text>
+</TouchableOpacity>
+
+
+
